@@ -7,14 +7,10 @@ public class GameData : MonoBehaviour
 
     private static int _score;
 
-    public void ResetScore()
-    {
-        _score = 0;
-    }
-
     public void AddToScore(int gain)
     {
         _score += gain;
+        UpdateScoreText();
     }
 
     private void UpdateScoreText()
