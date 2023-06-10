@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Entities;
 using UnityEngine;
 
@@ -6,48 +7,46 @@ public class Wall : MonoBehaviour
 {
     private Shape _shape;
     private bool _move;
-    
-    [Header("Wall Properties")]
-    [SerializeField] private float speed = 5;
-    [SerializeField] private float repeatRate = 15;
-    
-    [Header("Positions")]
-    [SerializeField] private Transform screenTopPos;
+
+    [Header("Wall Properties")] [SerializeField]
+    private float speed = 5;
+
+    [SerializeField] private int delay = 15;
+    [SerializeField] private int delayMin = 5;
+    [SerializeField] private int repeatingRate = 3;
+
+    [Header("Positions")] [SerializeField] private Transform screenTopPos;
     [SerializeField] private Transform screenBottomPos;
 
-    [Header("Shapes")]
-    [SerializeField] private List<Sprite> banners;
+    [Header("Shapes")] [SerializeField] private List<Sprite> banners;
     [SerializeField] private SpriteRenderer bannerRenderer;
 
-    [Header("References")]
-    [SerializeField] private EnemyPool _enemyPool;
+    [Header("References")] [SerializeField]
+    private EnemyPool enemyPool;
 
-    private void Awake()
-    {
-        // TODO: dynamic
-        InvokeRepeating(nameof(StartWall), 1, repeatRate);
-    }
+    private int _timer;
+    private int _counter;
+
 
     private void Update()
     {
+        _timer = (_timer + 1) % delay;
+        if (_timer == 0) StartWall();
+
         if (!_move) return;
 
         var moveVector = Vector3.MoveTowards(transform.position, screenBottomPos.position, speed * Time.deltaTime);
         transform.position = moveVector;
-
-        if (transform.position == screenBottomPos.position)
-        {
-            ResetWall();
-        }
+        if (transform.position == screenBottomPos.position) ResetWall();
     }
 
-    public void StartWall()
+    private void StartWall()
     {
         _move = true;
         ChooseRandomShape();
     }
 
-    public void StopWall()
+    private void StopWall()
     {
         _move = false;
     }
@@ -56,7 +55,17 @@ public class Wall : MonoBehaviour
     {
         StopWall();
         transform.position = screenTopPos.position;
-        _enemyPool.SpawnEnemyGroup();
+        UpdateWallProperties();
+
+        enemyPool.SpawnEnemyGroup();
+    }
+
+    private void UpdateWallProperties()
+    {
+        _counter = (_counter + 1) % repeatingRate;
+        if (_counter != 0) return;
+
+        delay = Math.Max(delay - 1, delayMin);
     }
 
 
@@ -65,18 +74,12 @@ public class Wall : MonoBehaviour
         _shape = ShapeAccess.GetRandomShape();
         string layerName = "Wall" + _shape;
 
-        if (_shape == Shape.Circle)
+        bannerRenderer.sprite = _shape switch
         {
-            bannerRenderer.sprite = banners[0];
-        }
-        else if (_shape == Shape.Square)
-        {
-            bannerRenderer.sprite = banners[1];
-        }
-        else
-        {
-            bannerRenderer.sprite = banners[2];
-        }
+            Shape.Circle => banners[0],
+            Shape.Square => banners[1],
+            _ => banners[2]
+        };
 
         gameObject.layer = LayerMask.NameToLayer(layerName);
     }
