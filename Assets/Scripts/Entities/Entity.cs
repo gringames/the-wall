@@ -11,8 +11,6 @@ namespace Entities
     [RequireComponent(typeof(Rigidbody2D))]
     public class Entity : MonoBehaviour
     {
-        [SerializeField] private float speed = 20;
-        [SerializeField] private float _accelerationFactor = 5;
         private readonly float _scaleSpeed = 0.05f;
         private readonly float _scaleMultiplier = 0.1f;
 
@@ -20,10 +18,10 @@ namespace Entities
 
         [SerializeField] private Ability ability;
         [SerializeField] protected Weapon weapon;
-        private Rigidbody2D _rigidbody2D;
+        protected Rigidbody2D Rigidbody2D;
 
-        protected bool _isDoneFalling = false;
-        private bool _frozen;
+        protected bool IsDoneFalling = false;
+        protected bool Frozen;
 
         [SerializeField] protected Shape shape;
 
@@ -37,8 +35,8 @@ namespace Entities
 
         private void InitRigidbody()
         {
-            _rigidbody2D = GetComponent<Rigidbody2D>();
-            _rigidbody2D.drag = knockBackResistance;
+            Rigidbody2D = GetComponent<Rigidbody2D>();
+            Rigidbody2D.drag = knockBackResistance;
         }
 
         #endregion
@@ -62,9 +60,9 @@ namespace Entities
             var scale = transform.localScale;
             scale *= _scaleMultiplier;
 
-            while (_rigidbody2D.velocity != Vector2.zero)
+            while (Rigidbody2D.velocity != Vector2.zero)
             {
-                _rigidbody2D.velocity = Vector2.MoveTowards(_rigidbody2D.velocity, Vector2.zero, Mathf.Max(_scaleSpeed, _scaleSpeed * _rigidbody2D.velocity.magnitude) * 60);
+                Rigidbody2D.velocity = Vector2.MoveTowards(Rigidbody2D.velocity, Vector2.zero, Mathf.Max(_scaleSpeed, _scaleSpeed * Rigidbody2D.velocity.magnitude) * 60);
                 yield return new WaitForFixedUpdate();
             }
 
@@ -73,7 +71,7 @@ namespace Entities
                 transform.localScale = Vector3.MoveTowards(transform.localScale, scale, _scaleSpeed);
                 yield return new WaitForFixedUpdate();
             }
-            _isDoneFalling = true;
+            IsDoneFalling = true;
         }
 
         #endregion
@@ -82,12 +80,12 @@ namespace Entities
 
         private void Freeze()
         {
-            _frozen = true;
+            Frozen = true;
         }
 
         private void Unfreeze()
         {
-            _frozen = false;
+            Frozen = false;
         }
 
         #endregion
@@ -102,14 +100,6 @@ namespace Entities
             transform.rotation = Quaternion.Euler(0, 0, angleDeg);
         }
 
-        protected void Move(Vector2 direction)
-        {
-            if (_frozen) return;
-
-            direction = direction.normalized;
-            Vector2 movVec = direction * speed;
-            _rigidbody2D.velocity = Vector2.Lerp(_rigidbody2D.velocity, movVec, Time.deltaTime * _accelerationFactor);
-        }
 
         protected void Shoot()
         {

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
@@ -7,9 +6,16 @@ namespace Entities
 {
     public class Player : Entity
     {
-        [SerializeField] List<GameObject> _shapes = new();
+        [Header("Player Properties")] [SerializeField]
+        List<GameObject> _shapes = new();
+
         [SerializeField] List<Weapon> _weapons = new();
-        [SerializeField] private float maxLineDistance = 4f;
+        [SerializeField] private float speed = 20;
+        [SerializeField] private float accelerationFactor = 5;
+
+        [Header("Line Properties")] [SerializeField]
+        private float maxLineDistance = 4f;
+
         [SerializeField] private Texture dot;
         [SerializeField] private float offset = 1.5f;
 
@@ -33,6 +39,16 @@ namespace Entities
             HandleInput();
             SwitchShape();
             DrawLine(mouseWorldPos);
+        }
+
+
+        private void Move(Vector2 direction)
+        {
+            if (Frozen) return;
+
+            direction = direction.normalized;
+            Vector2 movVec = direction * speed;
+            Rigidbody2D.velocity = Vector2.Lerp(Rigidbody2D.velocity, movVec, Time.deltaTime * accelerationFactor);
         }
 
         private void HandleInput()

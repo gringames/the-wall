@@ -18,10 +18,10 @@ namespace Entities
         private void Update()
         {
             LookAtPos(player.position);
-            if (_isDoneFalling)
+            if (IsDoneFalling)
             {
                 _pool.ResetEnemy(transform);
-                _isDoneFalling = false;
+                IsDoneFalling = false;
             }
         }
 
