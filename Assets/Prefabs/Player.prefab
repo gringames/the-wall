@@ -50,11 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  scaleSpeed: 2
-  scaleMultiplier: 0.1
   knockbackResistance: 0
   ability: {fileID: 0}
-  weapon: {fileID: 0}
+  weapon: {fileID: 5072575811625581863}
   _shapes:
   - {fileID: 6977532092923469345}
   - {fileID: 8190796531400177578}
