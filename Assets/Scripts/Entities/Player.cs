@@ -18,17 +18,9 @@ namespace Entities
             var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0f;
 
-            LookAtMouse(mouseWorldPos);
+            LookAtPos(mouseWorldPos);
             HandleInput();
             DrawLine(mouseWorldPos);
-        }
-
-        private void LookAtMouse(Vector3 mousePos)
-        {
-            Vector3 lookAt = mousePos;
-            float AngleRad = Mathf.Atan2(lookAt.y - transform.position.y, lookAt.x - transform.position.x);
-            float AngleDeg = 180 / Mathf.PI * AngleRad;
-            transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
         }
 
         private void HandleInput()

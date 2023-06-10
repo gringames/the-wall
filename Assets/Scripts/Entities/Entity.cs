@@ -36,6 +36,14 @@ namespace Entities
 
 
         #region Actions
+        
+        protected void LookAtPos(Vector3 targetPos)
+        {
+            Vector3 lookAt = targetPos;
+            float AngleRad = Mathf.Atan2(lookAt.y - transform.position.y, lookAt.x - transform.position.x);
+            float AngleDeg = 180 / Mathf.PI * AngleRad;
+            transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+        }
 
         private void FallIntoVoid()
         {
