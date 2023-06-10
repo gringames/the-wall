@@ -1,3 +1,4 @@
+using System.Collections;
 using Abilities;
 using UnityEngine;
 using Weapons;
@@ -7,13 +8,13 @@ using Weapons;
 
 namespace Entities
 {
-    //[RequireComponent(typeof(Ability))] [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class Entity : MonoBehaviour
     {
         [SerializeField] private float speed;
         [SerializeField] private float knockbackResistance;
 
-        private Ability _ability;
+        [SerializeField] private Ability ability;
         [SerializeField] private Weapon weapon;
         private Rigidbody2D _rigidbody2D;
 
@@ -23,19 +24,7 @@ namespace Entities
 
         private void Awake()
         {
-            // InitAbility();
-            // InitWeapon();
             InitRigidbody();
-        }
-
-        private void InitAbility()
-        {
-            _ability = GetComponent<Ability>();
-        }
-
-        private void InitWeapon()
-        {
-            weapon = GetComponent<Weapon>();
         }
 
         private void InitRigidbody()
@@ -61,7 +50,12 @@ namespace Entities
 
         private void ShrinkDown()
         {
-            // TODO: call Coroutine that slowly decreases scale of transform
+            StartCoroutine(nameof(ShrinkOverTime));
+        }
+
+        private IEnumerator ShrinkOverTime()
+        {
+            yield return null;
         }
 
         private void GetKnocked(Vector2 direction, float strength)
@@ -88,7 +82,7 @@ namespace Entities
 
         private void PerformAbility()
         {
-            _ability.Perform();
+            ability.Perform();
         }
 
         #endregion
