@@ -19,7 +19,6 @@ namespace Entities
         private List<Transform> _enemies = new();
         private int _spawnCounter;
 
-
         private void Start()
         {
             _poolPos = transform.position;
@@ -32,7 +31,6 @@ namespace Entities
 
             // TODO: sub to wall event: SpawnGroup
         }
-
 
         private void InitEnemies()
         {
@@ -55,12 +53,12 @@ namespace Entities
             Transform enemy = Pop();
             enemy.gameObject.SetActive(true);
             enemy.position = position;
-            
+
             Enemy enemyComponent = enemy.GetComponent<Enemy>();
             enemyComponent.SetShotInterval(_shotInterval);
         }
 
-        private void SpawnEnemyGroup()
+        public void SpawnEnemyGroup()
         {
             ShuffleSpawnPoints();
 
@@ -73,16 +71,18 @@ namespace Entities
                 SpawnEnemy(spawnPositions[index].position);
             }
 
+            UpdateEnemyProperties();
+        }
+
+        private void UpdateEnemyProperties()
+        {
+            // only do all 2 spawns, then set
+            _spawnCounter = (_spawnCounter + 1) % 2;
+            if (_spawnCounter != 0) return;
+
             // gradually increase number of spawned enemies and decrease shot interval
-            _spawnCounter++;
-            if (_spawnCounter <= 2) return;
-
             _enemyCount++;
-            
-            _shotInterval -= 0.1f;
-            if (_shotInterval < MinimalShotInterval) _shotInterval = MinimalShotInterval;
-
-            _spawnCounter = 0;
+            _shotInterval = Math.Max(_shotInterval - 0.1f, MinimalShotInterval);
         }
 
         #region ListMethods

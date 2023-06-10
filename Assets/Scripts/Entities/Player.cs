@@ -91,7 +91,6 @@ namespace Entities
             else if (Input.GetKey(KeyCode.Alpha2)) // Square
             {
                 SwitchShapeTo(Shape.Square, 1);
-
             }
             else if (Input.GetKey(KeyCode.Alpha3)) // Triangle
             {

@@ -1,17 +1,26 @@
 ﻿using System.Collections.Generic;
+using Entities;
 using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
     private Shape _shape;
     private bool _move;
-    [SerializeField] private Transform screenTopPos;
-    [SerializeField] private Transform screenBottomPos;
+    
+    [Header("Wall Properties")]
     [SerializeField] private float speed = 5;
     [SerializeField] private float repeatRate = 15;
+    
+    [Header("Positions")]
+    [SerializeField] private Transform screenTopPos;
+    [SerializeField] private Transform screenBottomPos;
 
-    [SerializeField] private List<Sprite> _banners;
-    [SerializeField] private SpriteRenderer _bannerRenderer;
+    [Header("Shapes")]
+    [SerializeField] private List<Sprite> banners;
+    [SerializeField] private SpriteRenderer bannerRenderer;
+
+    [Header("References")]
+    [SerializeField] private EnemyPool _enemyPool;
 
     private void Awake()
     {
@@ -47,6 +56,7 @@ public class Wall : MonoBehaviour
     {
         StopWall();
         transform.position = screenTopPos.position;
+        _enemyPool.SpawnEnemyGroup();
     }
 
 
@@ -57,15 +67,15 @@ public class Wall : MonoBehaviour
 
         if (_shape == Shape.Circle)
         {
-            _bannerRenderer.sprite = _banners[0];
+            bannerRenderer.sprite = banners[0];
         }
         else if (_shape == Shape.Square)
         {
-            _bannerRenderer.sprite = _banners[1];
+            bannerRenderer.sprite = banners[1];
         }
         else
         {
-            _bannerRenderer.sprite = _banners[2];
+            bannerRenderer.sprite = banners[2];
         }
 
         gameObject.layer = LayerMask.NameToLayer(layerName);
