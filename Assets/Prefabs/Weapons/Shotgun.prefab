@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a751683496489bb032b9b727ef1dc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cooldown: 0.75
+  _cooldown: 0.5
   _projectileCount: 5
   _strayAngle: 30
   _projectileSpawnPoints:
