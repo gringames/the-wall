@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,19 +8,22 @@ namespace Entities
 {
     public class EnemyPool : MonoBehaviour
     {
-        private Vector3 _poolPos;
-
-        private List<Transform> _enemies = new List<Transform>();
         [SerializeField] private List<Transform> spawnPositions = new List<Transform>();
+
+        private Vector3 _poolPos;
+        private List<Transform> _enemies = new List<Transform>();
+        [SerializeField] private int initialEnemyCount = 1;
+        private int _spawnCounter;
 
 
         private void Start()
         {
             _poolPos = transform.position;
-            
+
             InitEnemies();
+            SpawnEnemyGroup(initialEnemyCount);
             
-            SpawnEnemy();
+            // TODO: sub to wall event: SpawnGroup
         }
 
         private void InitEnemies()
@@ -35,16 +40,37 @@ namespace Entities
             enemy.localScale = new Vector3(1, 1);
             enemy.gameObject.SetActive(false);
             _enemies.Add(enemy);
-
-            SpawnEnemy();
         }
 
-        public void SpawnEnemy()
+        private void SpawnEnemy(Vector3 position)
         {
             Transform enemy = Pop();
             enemy.gameObject.SetActive(true);
-            enemy.position = GetRandomSpawnPos();
+            enemy.position = position;
         }
+
+        private void SpawnEnemyGroup(int numberOfEnemies)
+        {
+            ShuffleSpawnPoints();
+
+            var cap = Math.Min(numberOfEnemies, _enemies.Count);
+            var count = spawnPositions.Count;
+
+            for (int i = 0; i < cap; i++)
+            {
+                var index = i % count;
+                SpawnEnemy(spawnPositions[index].position);
+            }
+
+            // gradually increase number of spawned enemies
+            _spawnCounter++;
+            if (_spawnCounter <= 2) return;
+            
+            initialEnemyCount++;
+            _spawnCounter = 0;
+        }
+
+        #region ListMethods
 
         private Transform Pop()
         {
@@ -58,5 +84,12 @@ namespace Entities
             int index = Random.Range(0, spawnPositions.Count);
             return spawnPositions[index].position;
         }
+
+        private void ShuffleSpawnPoints()
+        {
+            spawnPositions = spawnPositions.OrderBy(_ => Random.value).ToList();
+        }
+
+        #endregion
     }
 }
