@@ -18,7 +18,7 @@ namespace Entities
         [SerializeField] private float knockbackResistance;
 
         [SerializeField] private Ability ability;
-        [SerializeField] private Weapon weapon;
+        [SerializeField] protected Weapon weapon;
         private Rigidbody2D _rigidbody2D;
 
         private bool _freezed;
