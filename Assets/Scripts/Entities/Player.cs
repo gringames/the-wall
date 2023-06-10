@@ -110,7 +110,7 @@ namespace Entities
 
             weapon = _weapons[id];
 
-            string layerName = "Player" + shape;
+            string layerName = "PhysicsPlayer" + shape;
             gameObject.layer = LayerMask.NameToLayer(layerName);
         }
 
