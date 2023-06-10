@@ -61,6 +61,7 @@ namespace Entities
         public void SpawnEnemyGroup()
         {
             ShuffleSpawnPoints();
+            ShuffleEnemies();
 
             var cap = Math.Min(_enemyCount, _enemies.Count);
             var count = spawnPositions.Count;
@@ -93,16 +94,15 @@ namespace Entities
             _enemies.RemoveAt(0);
             return toReturn;
         }
-
-        private Vector3 GetRandomSpawnPos()
-        {
-            int index = Random.Range(0, spawnPositions.Count);
-            return spawnPositions[index].position;
-        }
-
+        
         private void ShuffleSpawnPoints()
         {
             spawnPositions = spawnPositions.OrderBy(_ => Random.value).ToList();
+        }
+
+        private void ShuffleEnemies()
+        {
+            _enemies = _enemies.OrderBy(_ => Random.value).ToList();
         }
 
         #endregion

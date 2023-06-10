@@ -11,7 +11,7 @@ public class Wall : MonoBehaviour
     [Header("Wall Properties")] [SerializeField]
     private float speed = 5;
 
-    [SerializeField] private int delay = 15;
+    [SerializeField] private float delay = 15;
     [SerializeField] private int delayMin = 5;
     [SerializeField] private int repeatingRate = 3;
 
@@ -24,14 +24,15 @@ public class Wall : MonoBehaviour
     [Header("References")] [SerializeField]
     private EnemyPool enemyPool;
 
-    private int _timer;
+    private float _timer;
     private int _counter;
+    private readonly float _threshold = 0.1f;
 
 
     private void Update()
     {
-        _timer = (_timer + 1) % delay;
-        if (_timer == 0) StartWall();
+        _timer = (_timer + Time.deltaTime) % delay;
+        if (_timer < _threshold) StartWall();
 
         if (!_move) return;
 
