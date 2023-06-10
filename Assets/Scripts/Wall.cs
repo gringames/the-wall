@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Entities;
 using UnityEngine;
@@ -21,8 +22,10 @@ public class Wall : MonoBehaviour
     [Header("Shapes")] [SerializeField] private List<Sprite> banners;
     [SerializeField] private SpriteRenderer bannerRenderer;
 
-    [Header("References")] [SerializeField]
+    [Header("Enemy Spawning")] [SerializeField]
     private EnemyPool enemyPool;
+
+    [SerializeField] private float spawnDelay = 2;
 
     private float _timer;
     private int _counter;
@@ -58,6 +61,12 @@ public class Wall : MonoBehaviour
         transform.position = screenTopPos.position;
         UpdateWallProperties();
 
+        StartCoroutine(nameof(WaitAndSpawnNewEnemies));
+    }
+    
+    private IEnumerator WaitAndSpawnNewEnemies()
+    {
+        yield return new WaitForSeconds(spawnDelay);
         enemyPool.SpawnEnemyGroup();
     }
 
