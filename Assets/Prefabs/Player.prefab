@@ -35,7 +35,7 @@ Transform:
   - {fileID: 172451979846784738}
   - {fileID: 6491079628390365493}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1068534715590223633
 MonoBehaviour:
@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 2525317052666655162, guid: ad50b6f69b96d4abb84855fcae584351, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3382137171180742593, guid: ad50b6f69b96d4abb84855fcae584351, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -391,9 +395,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1593331567865482647, guid: 0e5843aa198d84e12950a177f2cba407, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2309056065444381633, guid: 0e5843aa198d84e12950a177f2cba407, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499928748753253907, guid: 0e5843aa198d84e12950a177f2cba407, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5611491809988369470, guid: 0e5843aa198d84e12950a177f2cba407, type: 3}
       propertyPath: m_Layer
@@ -403,6 +415,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 9087adc61e2fe46dfb9a4237d5a98e05, type: 3}
+    - target: {fileID: 7335342712470946157, guid: 0e5843aa198d84e12950a177f2cba407, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7352003866660778034, guid: 0e5843aa198d84e12950a177f2cba407, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 1068534715590223633}
+    - target: {fileID: 7352003866660778034, guid: 0e5843aa198d84e12950a177f2cba407, type: 3}
+      propertyPath: cooldown
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8728817371045540010, guid: 0e5843aa198d84e12950a177f2cba407, type: 3}
       propertyPath: m_Layer
       value: 11

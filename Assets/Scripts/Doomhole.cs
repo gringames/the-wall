@@ -6,15 +6,20 @@ public class Doomhole : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Entity entity = collision.gameObject.GetComponent<Entity>();
-        if (entity != null)
+        if (collision.gameObject.TryGetComponent<Projectile>(out var projectile))
+        {
+            return;
+        }
+
+        if (collision.gameObject.TryGetComponent<Entity>(out var entity))
         {
             entity.FallIntoVoid();
             return;
         }
 
-        entity = collision.transform.parent.transform.parent.GetComponent<Entity>();
-        if (entity != null)
+        Debug.Log(collision);
+
+        if (collision.transform.parent.transform.parent.TryGetComponent<Entity>(out entity))
         {
             entity.FallIntoVoid();
             return;
