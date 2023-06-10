@@ -8,11 +8,15 @@ namespace Entities
 {
     public class EnemyPool : MonoBehaviour
     {
-        [SerializeField] private List<Transform> spawnPositions = new List<Transform>();
-
-        private Vector3 _poolPos;
-        private List<Transform> _enemies = new List<Transform>();
+        [SerializeField] private List<Transform> spawnPositions = new();
         [SerializeField] private int initialEnemyCount = 1;
+        [SerializeField] private float initialShotInterval = 2;
+
+        private float _shotInterval;
+        private int _enemyCount;
+        private const float MinimalShotInterval = 0.15f;
+        private Vector3 _poolPos;
+        private List<Transform> _enemies = new();
         private int _spawnCounter;
 
 
@@ -20,11 +24,15 @@ namespace Entities
         {
             _poolPos = transform.position;
 
+            _shotInterval = initialShotInterval;
+            _enemyCount = initialEnemyCount;
+
             InitEnemies();
-            SpawnEnemyGroup(initialEnemyCount);
-            
+            SpawnEnemyGroup();
+
             // TODO: sub to wall event: SpawnGroup
         }
+
 
         private void InitEnemies()
         {
@@ -47,13 +55,16 @@ namespace Entities
             Transform enemy = Pop();
             enemy.gameObject.SetActive(true);
             enemy.position = position;
+            
+            Enemy enemyComponent = enemy.GetComponent<Enemy>();
+            enemyComponent.SetShotInterval(_shotInterval);
         }
 
-        private void SpawnEnemyGroup(int numberOfEnemies)
+        private void SpawnEnemyGroup()
         {
             ShuffleSpawnPoints();
 
-            var cap = Math.Min(numberOfEnemies, _enemies.Count);
+            var cap = Math.Min(_enemyCount, _enemies.Count);
             var count = spawnPositions.Count;
 
             for (int i = 0; i < cap; i++)
@@ -62,11 +73,15 @@ namespace Entities
                 SpawnEnemy(spawnPositions[index].position);
             }
 
-            // gradually increase number of spawned enemies
+            // gradually increase number of spawned enemies and decrease shot interval
             _spawnCounter++;
             if (_spawnCounter <= 2) return;
+
+            _enemyCount++;
             
-            initialEnemyCount++;
+            _shotInterval -= 0.1f;
+            if (_shotInterval < MinimalShotInterval) _shotInterval = MinimalShotInterval;
+
             _spawnCounter = 0;
         }
 

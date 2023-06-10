@@ -51,6 +51,7 @@ namespace Entities
 
         #region Fall
 
+        // TODO: call in LOCH
         protected virtual void FallIntoVoid()
         {
             Freeze();

@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: scaleSpeed
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1068534715590223633, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
+      propertyPath: maxLineDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1238694204930948750, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_BodyType
       value: 0
@@ -1718,6 +1722,8 @@ MonoBehaviour:
   - {fileID: 264935453}
   - {fileID: 903855358}
   - {fileID: 2093205510}
+  initialEnemyCount: 1
+  initialShotInterval: 2
 --- !u!1 &1326854754
 GameObject:
   m_ObjectHideFlags: 0

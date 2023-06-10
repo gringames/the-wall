@@ -8,6 +8,7 @@ namespace Entities
     {
         [SerializeField] List<GameObject> _shapes = new();
         [SerializeField] List<Weapon> _weapons = new();
+        [SerializeField] private float maxLineDistance = 4f;
 
         // controlled by input system
         private LineRenderer _lineRenderer;
@@ -87,8 +88,13 @@ namespace Entities
 
         private void DrawLine(Vector3 target)
         {
-            _lineRenderer.SetPosition(0, transform.position);
-            _lineRenderer.SetPosition(1, target);
+            Vector3[] points = new Vector3[2];
+            points[0] = transform.position;
+
+            var direction = (target - points[0]).normalized;
+            points[1] = points[0] + direction * maxLineDistance;
+
+            _lineRenderer.SetPositions(points);
         }
     }
 }
