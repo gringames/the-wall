@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Entities;
 using UnityEngine;
 
 public class Wall : MonoBehaviour
@@ -17,6 +18,9 @@ public class Wall : MonoBehaviour
     [Header("Shapes")]
     [SerializeField] private List<Sprite> banners;
     [SerializeField] private SpriteRenderer bannerRenderer;
+
+    [Header("References")]
+    [SerializeField] private EnemyPool _enemyPool;
 
     private void Awake()
     {
@@ -52,6 +56,7 @@ public class Wall : MonoBehaviour
     {
         StopWall();
         transform.position = screenTopPos.position;
+        _enemyPool.SpawnEnemyGroup();
     }
 
 
