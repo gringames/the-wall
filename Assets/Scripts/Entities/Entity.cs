@@ -11,17 +11,19 @@ namespace Entities
     [RequireComponent(typeof(Rigidbody2D))]
     public class Entity : MonoBehaviour
     {
-        [SerializeField] private float speed;
-        [SerializeField] private float scaleSpeed = 0.05f;
-        [SerializeField] private float scaleMultiplier = 0.1f;
+        [SerializeField] private float speed = 20;
+        private readonly float _scaleSpeed = 0.05f;
+        private readonly float _scaleMultiplier = 0.1f;
 
-        [SerializeField] private float knockbackResistance;
+        [SerializeField] private float knockbackResistance = 2;
 
         [SerializeField] private Ability ability;
         [SerializeField] protected Weapon weapon;
         private Rigidbody2D _rigidbody2D;
 
         private bool _freezed;
+        private readonly float _freezeTime = 1f;
+
 
         #region Init
 
@@ -33,12 +35,10 @@ namespace Entities
         private void InitRigidbody()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _rigidbody2D.drag = knockbackResistance;
         }
 
         #endregion
-
-
-        #region Actions
 
         public void LookAtPos(Vector3 targetPos)
         {
@@ -56,10 +56,6 @@ namespace Entities
             ShrinkDown();
         }
 
-        private void Freeze()
-        {
-            _freezed = true;
-        }
 
         private void ShrinkDown()
         {
@@ -69,23 +65,45 @@ namespace Entities
         private IEnumerator ShrinkOverTime()
         {
             var scale = transform.localScale;
-            scale *= scaleMultiplier;
+            scale *= _scaleMultiplier;
 
             while (transform.localScale.x > scale.x)
             {
-                transform.localScale = Vector3.MoveTowards(transform.localScale, scale, scaleSpeed);
+                transform.localScale = Vector3.MoveTowards(transform.localScale, scale, _scaleSpeed);
                 yield return new WaitForFixedUpdate();
             }
         }
 
         #endregion
 
-        private void GetKnocked(Vector2 direction, float strength)
+        protected void GetKnocked(Vector2 direction, float strength)
         {
-            // TODO: implement
-            // different strength for hitting wall or other enemy
-            // TODO: freeze and unfreeze
+            // strength 5 was used
+
+            Freeze();
+
+            var force = direction * strength;
+            _rigidbody2D.AddForce(force, ForceMode2D.Impulse);
+
+            Invoke(nameof(Unfreeze), _freezeTime);
         }
+
+        #region Freeze
+
+        private void Freeze()
+        {
+            _freezed = true;
+        }
+
+        private void Unfreeze()
+        {
+            _freezed = false;
+        }
+
+        #endregion
+
+
+        #region Actions
 
         protected void Move(Vector2 direction)
         {

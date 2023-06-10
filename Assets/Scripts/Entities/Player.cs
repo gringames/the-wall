@@ -15,6 +15,7 @@ namespace Entities
         private void Start()
         {
             _lineRenderer = GetComponent<LineRenderer>();
+            
         }
 
 
