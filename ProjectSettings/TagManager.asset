@@ -11,22 +11,22 @@ TagManager:
   - 
   - Water
   - UI
-  - PhysicsPlayer
-  - PhysicsEnemy
+  - 
+  - 
   - BulletsPlayer
   - BulletsEnemy
   - 
+  - PhysicsPlayerCircle
+  - PhysicsPlayerTriangle
+  - PhysicsPlayerSquare
   - 
+  - PhysicsEnemyCircle
+  - PhysicsEnemyTriangle
+  - PhysicsEnemySquare
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - WallCircle
+  - WallTriangle
+  - WallSquare
   - 
   - 
   - 

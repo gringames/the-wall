@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 701871359582389343, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1068534715590223633, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: dot
@@ -165,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1663431387032495380, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1939036760791248360, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_ApplyActiveColorSpace
@@ -189,11 +189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2188155873463848000, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3071207672835219668, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3093803674476401308, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Name
@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3093803674476401308, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3283542916823531370, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_RootOrder
@@ -249,69 +249,61 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070658481042587852, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4196548367311884510, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5664658322914804498, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5933472644918022204, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6104266599809573837, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6977532092923469345, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7522475489897774090, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7868164397295110234, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8190796531400177578, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8204692629760540449, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8338001828023604159, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8357871445075727528, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9094022265948328440, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3093803674476401308, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 443535152}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
---- !u!1 &50302189 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3093803674476401308, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
-  m_PrefabInstance: {fileID: 50302188}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &52916409
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +471,7 @@ GameObject:
   - component: {fileID: 133057662}
   - component: {fileID: 133057661}
   - component: {fileID: 133057660}
-  m_Layer: 7
+  m_Layer: 15
   m_Name: Enemy (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   _accelerationFactor: 5
-  knockbackResistance: 0
+  knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
   player: {fileID: 443535151}
@@ -730,7 +722,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 26599623661574627, guid: f9fe4319bf1e6426183efcac358a0c49, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -748,7 +741,7 @@ GameObject:
   - component: {fileID: 314706569}
   - component: {fileID: 314706568}
   - component: {fileID: 314706567}
-  m_Layer: 7
+  m_Layer: 15
   m_Name: Enemy (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   _accelerationFactor: 5
-  knockbackResistance: 0
+  knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
   player: {fileID: 443535151}
@@ -1025,23 +1018,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3283542916823531370, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
   m_PrefabInstance: {fileID: 50302188}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &443535152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 50302189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293cf6370fd741e69ab569725a809267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dot: {fileID: 21300000, guid: 8112be432982e4a678741bd673bb7321, type: 3}
-  size: 0
-  delta: 0
-  _positions: []
-  _dots: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,7 +1154,7 @@ GameObject:
   - component: {fileID: 934969543}
   - component: {fileID: 934969542}
   - component: {fileID: 934969546}
-  m_Layer: 7
+  m_Layer: 15
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1199,7 +1175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   _accelerationFactor: 5
-  knockbackResistance: 0
+  knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
   player: {fileID: 443535151}
@@ -1355,7 +1331,7 @@ GameObject:
   - component: {fileID: 945340419}
   - component: {fileID: 945340418}
   - component: {fileID: 945340417}
-  m_Layer: 7
+  m_Layer: 15
   m_Name: Enemy (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1436,7 +1412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   _accelerationFactor: 5
-  knockbackResistance: 0
+  knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
   player: {fileID: 443535151}
@@ -1532,7 +1508,7 @@ GameObject:
   - component: {fileID: 986451031}
   - component: {fileID: 986451030}
   - component: {fileID: 986451029}
-  m_Layer: 7
+  m_Layer: 15
   m_Name: Enemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1613,7 +1589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   _accelerationFactor: 5
-  knockbackResistance: 0
+  knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
   player: {fileID: 443535151}
@@ -1851,7 +1827,7 @@ GameObject:
   - component: {fileID: 1326854758}
   - component: {fileID: 1326854757}
   - component: {fileID: 1326854756}
-  m_Layer: 7
+  m_Layer: 15
   m_Name: Enemy (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1932,7 +1908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   _accelerationFactor: 5
-  knockbackResistance: 0
+  knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
   player: {fileID: 443535151}
