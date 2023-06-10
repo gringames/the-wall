@@ -45,6 +45,7 @@ namespace Entities
 
         public virtual void FallIntoVoid()
         {
+            Debug.Log("Ded");
             Freeze();
             ShrinkDown();
         }

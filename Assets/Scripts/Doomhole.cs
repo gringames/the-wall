@@ -10,6 +10,14 @@ public class Doomhole : MonoBehaviour
         if (entity != null)
         {
             entity.FallIntoVoid();
+            return;
+        }
+
+        entity = collision.transform.parent.transform.parent.GetComponent<Entity>();
+        if (entity != null)
+        {
+            entity.FallIntoVoid();
+            return;
         }
     }
 }
