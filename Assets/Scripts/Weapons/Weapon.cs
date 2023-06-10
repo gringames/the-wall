@@ -28,6 +28,10 @@ namespace Weapons
                 projectile.transform.SetPositionAndRotation(spawn.transform.position, spawn.transform.rotation);
                 projectile.transform.rotation *= Quaternion.Euler(0, 0, Random.Range(-_strayAngle, _strayAngle));
                 _spawnIndex++;
+                if (_spawnIndex >= _projectileSpawnPoints.Count)
+                {
+                    _spawnIndex = 0;
+                }
             }
         }
 
