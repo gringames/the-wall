@@ -22,11 +22,14 @@ namespace Entities
         [SerializeField] protected Weapon weapon;
         private Rigidbody2D _rigidbody2D;
 
+        private bool _frozen;
+
         #region Init
 
         private void Awake()
         {
             InitRigidbody();
+            Unfreeze();
         }
 
         private void InitRigidbody()
@@ -42,6 +45,7 @@ namespace Entities
         // TODO: call in LOCH
         public virtual void FallIntoVoid()
         {
+            Freeze();
             ShrinkDown();
         }
 
@@ -65,6 +69,20 @@ namespace Entities
 
         #endregion
 
+        #region Freeze
+
+        private void Freeze()
+        {
+            _frozen = true;
+        }
+
+        private void Unfreeze()
+        {
+            _frozen = false;
+        }
+
+        #endregion
+
         #region Actions
 
         protected void LookAtPos(Vector3 targetPos)
@@ -77,6 +95,8 @@ namespace Entities
 
         protected void Move(Vector2 direction)
         {
+            if (_frozen) return;
+
             direction = direction.normalized;
             Vector2 movVec = direction * speed;
             _rigidbody2D.velocity = Vector2.Lerp(_rigidbody2D.velocity, movVec, Time.deltaTime * _accelerationFactor);
