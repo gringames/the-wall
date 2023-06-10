@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Abilities
@@ -6,18 +6,28 @@ namespace Abilities
     public abstract class Ability : MonoBehaviour
     {
         [SerializeField] private float cooldown;
-        private float _cooldown;
+        protected bool Ready;
 
         private void Awake()
         {
-            _cooldown = cooldown;
+            Ready = true;
         }
 
         public void Perform()
         {
-            if (_cooldown <= 0) return;
+            if (!Ready) return;
+
             DoAbility();
+            StartCoroutine(nameof(StartCooldownTimer));
         }
+
+        private IEnumerator StartCooldownTimer()
+        {
+            Ready = false;
+            yield return new WaitForSeconds(cooldown);
+            Ready = true;
+        }
+
 
         protected abstract void DoAbility();
     }

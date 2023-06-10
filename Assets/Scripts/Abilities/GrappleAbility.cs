@@ -32,6 +32,7 @@ namespace Abilities
         {
             _attackedEnemy = attacked;
             _attacked = true;
+            Ready = true;
         }
 
 
@@ -49,7 +50,6 @@ namespace Abilities
         {
             yield return new WaitForSeconds(1);
             ResetAbility();
-            
         }
 
         private void ResetAbility()
