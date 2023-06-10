@@ -1,7 +1,20 @@
-﻿namespace Entities
+﻿using UnityEngine;
+
+namespace Entities
 {
-        public class EnemyAI
+    public class EnemyAI : MonoBehaviour
+    {
+        [SerializeField] private Transform player;
+        private Enemy _enemy;
+
+        private void Start()
         {
-                // controls Enemy
+            _enemy = GetComponent<Enemy>();
         }
+
+        private void Update()
+        {
+            _enemy.LookAtPos(player.position);
+        }
+    }
 }

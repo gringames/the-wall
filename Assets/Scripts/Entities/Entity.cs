@@ -12,6 +12,9 @@ namespace Entities
     public class Entity : MonoBehaviour
     {
         [SerializeField] private float speed;
+        [SerializeField] private float scaleSpeed = 2;
+        [SerializeField] private float scaleMultiplier = 0.1f;
+        
         [SerializeField] private float knockbackResistance;
 
         [SerializeField] private Ability ability;
@@ -36,8 +39,8 @@ namespace Entities
 
 
         #region Actions
-        
-        protected void LookAtPos(Vector3 targetPos)
+
+        public void LookAtPos(Vector3 targetPos)
         {
             Vector3 lookAt = targetPos;
             float AngleRad = Mathf.Atan2(lookAt.y - transform.position.y, lookAt.x - transform.position.x);
@@ -45,7 +48,7 @@ namespace Entities
             transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
         }
 
-        private void FallIntoVoid()
+        protected void FallIntoVoid()
         {
             Freeze();
             ShrinkDown();
@@ -63,13 +66,21 @@ namespace Entities
 
         private IEnumerator ShrinkOverTime()
         {
-            yield return null;
+            var scale = transform.localScale;
+            scale *= scaleMultiplier;
+
+            while (transform.localScale.x > scale.x)
+            {
+                transform.localScale = Vector3.MoveTowards(transform.localScale, scale, scaleSpeed);
+                yield return new WaitForFixedUpdate();
+            }
         }
 
         private void GetKnocked(Vector2 direction, float strength)
         {
             // TODO: implement
             // different strength for hitting wall or other enemy
+            // TODO: freeze and unfreeze
         }
 
         protected void Move(Vector2 direction)

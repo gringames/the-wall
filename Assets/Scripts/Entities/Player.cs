@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 namespace Entities
 {
@@ -10,6 +11,7 @@ namespace Entities
         private void Start()
         {
             _LineRenderer = GetComponent<LineRenderer>();
+            FallIntoVoid();
         }
 
 
