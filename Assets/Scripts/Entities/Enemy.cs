@@ -12,7 +12,7 @@ namespace Entities
         {
             _pool = GetComponentInParent<EnemyPool>();
 
-            InvokeRepeating(nameof(Shoot), _shotInterval, _shotInterval);
+            InvokeRepeating(nameof(Shoot), _shotInterval + Random.value * _shotInterval, _shotInterval);
         }
 
         private void Update()

@@ -205,7 +205,7 @@ MonoBehaviour:
   _strayAngle: 30
   _projectileSpawnPoints:
   - {fileID: 430288487208471736}
-  _projectilePrefab: {fileID: 2839177957627951568, guid: 6509e782e5ab14669bdb34ff30359721, type: 3}
+  _projectilePrefab: {fileID: 2839177957627951568, guid: 6096de5f86d3a4e5aa7ce72536f578fa, type: 3}
   _barrels:
   - {fileID: 5899547108376439889}
 --- !u!1 &5213519004789630131

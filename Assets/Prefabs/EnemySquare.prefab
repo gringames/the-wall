@@ -308,7 +308,7 @@ MonoBehaviour:
   _projectileSpawnPoints:
   - {fileID: 8888503248698630177}
   - {fileID: 5271201643453540250}
-  _projectilePrefab: {fileID: 4501500986771570346, guid: dc3f3e030cef948fd872cbe959bde666, type: 3}
+  _projectilePrefab: {fileID: 4501500986771570346, guid: 796627cfa44a1488b8071daf854abac3, type: 3}
   _barrels:
   - {fileID: 62449990833593584}
   - {fileID: 1364521538758279422}
