@@ -6,6 +6,12 @@ namespace Entities
 {
     public class Player : Entity
     {
+        public float Speed
+        {
+            get => speed;
+            set => speed = value;
+        }
+
         [Header("Player Properties")] [SerializeField]
         List<GameObject> _shapes = new();
 
