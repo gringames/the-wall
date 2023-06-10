@@ -18,12 +18,16 @@ namespace Entities
         private void Update()
         {
             LookAtPos(player.position);
+            if (_isDoneFalling)
+            {
+                _pool.ResetEnemy(transform);
+                _isDoneFalling = false;
+            }
         }
 
         public override void FallIntoVoid()
         {
             base.FallIntoVoid();
-            _pool.ResetEnemy(transform);
         }
 
         public void SetShotInterval(float interval)

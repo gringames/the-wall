@@ -22,6 +22,7 @@ namespace Entities
         [SerializeField] protected Weapon weapon;
         private Rigidbody2D _rigidbody2D;
 
+        protected bool _isDoneFalling = false;
         private bool _frozen;
 
         #region Init
@@ -42,7 +43,6 @@ namespace Entities
 
         #region Fall
 
-        // TODO: call in LOCH
         public virtual void FallIntoVoid()
         {
             Freeze();
@@ -60,11 +60,18 @@ namespace Entities
             var scale = transform.localScale;
             scale *= _scaleMultiplier;
 
+            while (_rigidbody2D.velocity != Vector2.zero)
+            {
+                _rigidbody2D.velocity = Vector2.MoveTowards(_rigidbody2D.velocity, Vector2.zero, Mathf.Max(_scaleSpeed, _scaleSpeed * _rigidbody2D.velocity.magnitude) * 60);
+                yield return new WaitForFixedUpdate();
+            }
+
             while (transform.localScale.x > scale.x)
             {
                 transform.localScale = Vector3.MoveTowards(transform.localScale, scale, _scaleSpeed);
                 yield return new WaitForFixedUpdate();
             }
+            _isDoneFalling = true;
         }
 
         #endregion
