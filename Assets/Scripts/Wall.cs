@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class Wall : MonoBehaviour
     [SerializeField] private Transform screenBottomPos;
     [SerializeField] private float speed = 5;
     [SerializeField] private float repeatRate = 15;
+
+    [SerializeField] private List<Sprite> _banners;
+    [SerializeField] private SpriteRenderer _bannerRenderer;
 
     private void Awake()
     {
@@ -50,6 +54,19 @@ public class Wall : MonoBehaviour
     {
         _shape = ShapeAccess.GetRandomShape();
         string layerName = "Wall" + _shape;
+
+        if (_shape == Shape.Circle)
+        {
+            _bannerRenderer.sprite = _banners[0];
+        }
+        else if (_shape == Shape.Square)
+        {
+            _bannerRenderer.sprite = _banners[1];
+        }
+        else
+        {
+            _bannerRenderer.sprite = _banners[2];
+        }
 
         gameObject.layer = LayerMask.NameToLayer(layerName);
     }
