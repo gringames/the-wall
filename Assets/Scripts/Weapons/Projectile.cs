@@ -10,6 +10,6 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        _rb.velocity = transform.forward * _speed;
+        _rb.velocity = transform.right * _speed;
     }
 }
