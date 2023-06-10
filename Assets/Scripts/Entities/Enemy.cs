@@ -12,6 +12,9 @@ namespace Entities
         {
             _pool = GetComponentInParent<EnemyPool>();
             
+            string layerName = "Enemy" + shape;
+            gameObject.layer = LayerMask.NameToLayer(layerName);
+            
             InvokeRepeating(nameof(Shoot), _shotInterval, _shotInterval);
         }
 

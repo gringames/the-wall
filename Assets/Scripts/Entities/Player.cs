@@ -86,28 +86,32 @@ namespace Entities
         {
             if (Input.GetKey(KeyCode.Alpha1)) // Circle
             {
-                _shapes[0].SetActive(true);
-                _shapes[1].SetActive(false);
-                _shapes[2].SetActive(false);
-                weapon = _weapons[0];
-                shape = Shape.Circle;
+                SwitchShapeTo(Shape.Circle, 0);
             }
             else if (Input.GetKey(KeyCode.Alpha2)) // Square
             {
-                _shapes[0].SetActive(false);
-                _shapes[1].SetActive(true);
-                _shapes[2].SetActive(false);
-                weapon = _weapons[1];
-                shape = Shape.Square;
+                SwitchShapeTo(Shape.Square, 1);
+
             }
             else if (Input.GetKey(KeyCode.Alpha3)) // Triangle
             {
-                _shapes[0].SetActive(false);
-                _shapes[1].SetActive(false);
-                _shapes[2].SetActive(true);
-                weapon = _weapons[2];
-                shape = Shape.Triangle;
+                SwitchShapeTo(Shape.Triangle, 2);
             }
+        }
+
+        private void SwitchShapeTo(Shape newShape, int id)
+        {
+            shape = newShape;
+
+            for (int i = 0; i < 3; i++)
+            {
+                _shapes[i].SetActive(i == id);
+            }
+
+            weapon = _weapons[id];
+
+            string layerName = "Player" + shape;
+            gameObject.layer = LayerMask.NameToLayer(layerName);
         }
 
         private void DrawLine(Vector3 target)

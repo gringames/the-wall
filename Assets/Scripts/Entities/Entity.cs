@@ -9,7 +9,7 @@ using Weapons;
 namespace Entities
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Entity : MonoBehaviour
+    public abstract class Entity : MonoBehaviour
     {
         private readonly float _scaleSpeed = 0.05f;
         private readonly float _scaleMultiplier = 0.1f;
