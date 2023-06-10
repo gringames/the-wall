@@ -20,7 +20,7 @@ namespace Entities
             LookAtPos(player.position);
         }
 
-        protected override void FallIntoVoid()
+        public override void FallIntoVoid()
         {
             base.FallIntoVoid();
             _pool.ResetEnemy(transform);

@@ -95,6 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 114320279074936185}
   - component: {fileID: 6036917264694903879}
+  - component: {fileID: 994095073251312745}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -152,3 +153,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 3.08, y: 18.5}
   m_Direction: 0
+--- !u!114 &994095073251312745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723623605137231430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7d03d43ee55404e977310ed6321d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

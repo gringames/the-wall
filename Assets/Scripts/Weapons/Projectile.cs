@@ -5,7 +5,6 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float _speed = 5f;
-    [SerializeField] float _knockbackForce = 10f;
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] int _maxBounces = 1;
 
