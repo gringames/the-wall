@@ -7,12 +7,6 @@ namespace Entities
 {
     public class Player : Entity
     {
-        public float Speed
-        {
-            get => speed;
-            set => speed = value;
-        }
-
         [Header("Player Properties")] [SerializeField]
         List<GameObject> _shapes = new();
 
@@ -30,6 +24,8 @@ namespace Entities
         // controlled by input system
         private LineRenderer _lineRenderer;
         private static readonly int MainTex = Shader.PropertyToID("_MainTex");
+
+        public bool doubleSpeed = false;
 
         private void Start()
         {
@@ -50,13 +46,19 @@ namespace Entities
         }
 
 
-        private void Move(Vector2 direction)
+        private void Move(Vector2 direction, bool forceUpdate = false)
         {
             if (Frozen) return;
 
-            direction = direction.normalized;
-            Vector2 movVec = direction * speed;
-            Rigidbody2D.velocity = Vector2.Lerp(Rigidbody2D.velocity, movVec, Time.deltaTime * accelerationFactor);
+            if (forceUpdate)
+            {
+                Rigidbody2D.velocity = direction * speed;   
+            }
+            else
+            {
+                Vector2 movVec = direction * speed;
+                Rigidbody2D.velocity = Vector2.Lerp(Rigidbody2D.velocity, movVec, Time.deltaTime * accelerationFactor);
+            }
         }
 
         private void HandleInput()
@@ -82,7 +84,15 @@ namespace Entities
                 input.x = 1;
             }
 
-            Move(input.normalized);
+            if (doubleSpeed)
+            {
+                Move(transform.right * 2, true);
+                doubleSpeed = false;
+            }
+            else
+            {
+                Move(input.normalized);
+            }
 
             if (Input.GetMouseButton(0))
             {

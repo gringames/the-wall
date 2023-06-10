@@ -17,8 +17,6 @@ public class Doomhole : MonoBehaviour
             return;
         }
 
-        Debug.Log(collision);
-
         if (collision.transform.parent.transform.parent.TryGetComponent<Entity>(out entity))
         {
             entity.FallIntoVoid();
