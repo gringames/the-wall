@@ -93,16 +93,16 @@ namespace Entities
 
         private void DrawLine(Vector3 target)
         {
-            
-            
             var pos = transform.position + transform.right * offset;
-            var direction = (target - pos).normalized;
+            var direction = target - pos;
 
-            if (Vector3.Dot(direction, Vector3.right) < 0) return;
-            
-            
+            bool mouseInsidePlayer = direction.magnitude < offset;
+            _lineRenderer.enabled = !mouseInsidePlayer;
+
+            direction = direction.normalized;
+
             var end = pos + direction * maxLineDistance;
-            
+
             Vector3[] points = {pos, end};
 
             float width = _lineRenderer.startWidth;
