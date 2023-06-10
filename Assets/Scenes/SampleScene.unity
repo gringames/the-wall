@@ -555,6 +555,7 @@ MonoBehaviour:
   knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
+  shape: 0
   player: {fileID: 443535151}
 --- !u!50 &133057662
 Rigidbody2D:
@@ -825,6 +826,7 @@ MonoBehaviour:
   knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
+  shape: 0
   player: {fileID: 443535151}
 --- !u!50 &314706569
 Rigidbody2D:
@@ -1178,6 +1180,7 @@ MonoBehaviour:
   knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
+  shape: 0
   player: {fileID: 443535151}
 --- !u!50 &934969543
 Rigidbody2D:
@@ -1415,6 +1418,7 @@ MonoBehaviour:
   knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
+  shape: 0
   player: {fileID: 443535151}
 --- !u!50 &945340419
 Rigidbody2D:
@@ -1592,6 +1596,7 @@ MonoBehaviour:
   knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
+  shape: 0
   player: {fileID: 443535151}
 --- !u!50 &986451031
 Rigidbody2D:
@@ -1911,6 +1916,7 @@ MonoBehaviour:
   knockBackResistance: 2
   ability: {fileID: 0}
   weapon: {fileID: 0}
+  shape: 0
   player: {fileID: 443535151}
 --- !u!50 &1326854758
 Rigidbody2D:
@@ -2022,6 +2028,37 @@ Transform:
   m_Father: {fileID: 1692770938}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1549483094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1549483095}
+  m_Layer: 0
+  m_Name: WallBottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1549483095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549483094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3.72, z: 0}
+  m_LocalScale: {x: 1, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1692770937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,6 +2095,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1968083480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1968083481}
+  m_Layer: 0
+  m_Name: WallTop
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1968083481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968083480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.77, z: 0}
+  m_LocalScale: {x: 1, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2058867139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2069,6 +2137,7 @@ GameObject:
   - component: {fileID: 2058867141}
   - component: {fileID: 2058867140}
   - component: {fileID: 2058867142}
+  - component: {fileID: 2058867143}
   m_Layer: 0
   m_Name: Shape Wall
   m_TagString: Untagged
@@ -2188,6 +2257,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2058867143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058867139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e496119d9d4a64a040fb8679e0f867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenTopPos: {fileID: 1968083481}
+  screenBottomPos: {fileID: 1549483095}
+  speed: 5
 --- !u!1 &2093205509
 GameObject:
   m_ObjectHideFlags: 0
