@@ -68,26 +68,29 @@ namespace Entities
 
         private void SwitchShape()
         {
-            if (Input.GetKey(KeyCode.Alpha1))
+            if (Input.GetKey(KeyCode.Alpha1)) // Circle
             {
                 _shapes[0].SetActive(true);
                 _shapes[1].SetActive(false);
                 _shapes[2].SetActive(false);
                 weapon = _weapons[0];
+                shape = Shape.Circle;
             }
-            else if (Input.GetKey(KeyCode.Alpha2))
+            else if (Input.GetKey(KeyCode.Alpha2)) // Square
             {
                 _shapes[0].SetActive(false);
                 _shapes[1].SetActive(true);
                 _shapes[2].SetActive(false);
                 weapon = _weapons[1];
+                shape = Shape.Square;
             }
-            else if (Input.GetKey(KeyCode.Alpha3))
+            else if (Input.GetKey(KeyCode.Alpha3)) // Triangle
             {
                 _shapes[0].SetActive(false);
                 _shapes[1].SetActive(false);
                 _shapes[2].SetActive(true);
                 weapon = _weapons[2];
+                shape = Shape.Triangle;
             }
         }
 

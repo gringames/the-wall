@@ -25,6 +25,8 @@ namespace Entities
         protected bool _isDoneFalling = false;
         private bool _frozen;
 
+        [SerializeField] protected Shape shape;
+
         #region Init
 
         private void Awake()
