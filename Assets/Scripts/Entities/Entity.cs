@@ -7,22 +7,24 @@ using Weapons;
 
 namespace Entities
 {
-    [RequireComponent(typeof(Ability))] [RequireComponent(typeof(Rigidbody2D))]
+    //[RequireComponent(typeof(Ability))] [RequireComponent(typeof(Rigidbody2D))]
     public class Entity : MonoBehaviour
     {
         [SerializeField] private float speed;
         [SerializeField] private float knockbackResistance;
 
         private Ability _ability;
-        private Weapon _weapon;
-        private Rigidbody2D _rigidbody;
+        [SerializeField] private Weapon weapon;
+        private Rigidbody2D _rigidbody2D;
+
+        private bool _freezed;
 
         #region Init
 
         private void Awake()
         {
-            InitAbility();
-            InitWeapon();
+            // InitAbility();
+            // InitWeapon();
             InitRigidbody();
         }
 
@@ -33,12 +35,12 @@ namespace Entities
 
         private void InitWeapon()
         {
-            _weapon = GetComponent<Weapon>();
+            weapon = GetComponent<Weapon>();
         }
 
         private void InitRigidbody()
         {
-            _rigidbody = GetComponent<Rigidbody2D>();
+            _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
         #endregion
@@ -54,8 +56,7 @@ namespace Entities
 
         private void Freeze()
         {
-            _rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
-            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            _freezed = true;
         }
 
         private void ShrinkDown()
@@ -65,20 +66,24 @@ namespace Entities
 
         private void GetKnocked(Vector2 direction, float strength)
         {
-            // TODO: implement with RB2D
+            // TODO: implement
             // different strength for hitting wall or other enemy
         }
 
-        private void Move(Vector2 direction)
+        protected void Move(Vector2 direction)
         {
-            // TODO: maybe do with rigidbody
-            Vector3 direction3D = new Vector3(direction.x, direction.y, 0);
-            transform.position += direction3D;
+            if (_freezed) return;
+
+            direction = direction.normalized;
+            Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+
+            Vector2 movVec = direction * (speed * Time.deltaTime);
+            _rigidbody2D.MovePosition(pos + movVec);
         }
 
-        private void Shoot()
+        protected void Shoot()
         {
-            _weapon.Shoot();
+            weapon.Shoot();
         }
 
         private void PerformAbility()
