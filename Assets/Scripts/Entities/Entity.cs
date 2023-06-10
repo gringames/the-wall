@@ -41,7 +41,7 @@ namespace Entities
 
         #endregion
 
-        public void LookAtPos(Vector3 targetPos)
+        protected void LookAtPos(Vector3 targetPos)
         {
             Vector3 lookAt = targetPos;
             float angleRad = Mathf.Atan2(lookAt.y - transform.position.y, lookAt.x - transform.position.x);
@@ -51,7 +51,7 @@ namespace Entities
 
         #region Fall
 
-        protected void FallIntoVoid()
+        protected virtual void FallIntoVoid()
         {
             Freeze();
             ShrinkDown();
