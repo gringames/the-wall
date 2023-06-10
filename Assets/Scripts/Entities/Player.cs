@@ -1,16 +1,15 @@
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 
 namespace Entities
 {
     public class Player : Entity
     {
         // controlled by input system
-        private LineRenderer _LineRenderer;
+        private LineRenderer _lineRenderer;
 
         private void Start()
         {
-            _LineRenderer = GetComponent<LineRenderer>();
+            _lineRenderer = GetComponent<LineRenderer>();
         }
 
 
@@ -54,8 +53,8 @@ namespace Entities
 
         private void DrawLine(Vector3 target)
         {
-            _LineRenderer.SetPosition(0, transform.position);
-            _LineRenderer.SetPosition(1, target);
+            _lineRenderer.SetPosition(0, transform.position);
+            _lineRenderer.SetPosition(1, target);
         }
     }
 }

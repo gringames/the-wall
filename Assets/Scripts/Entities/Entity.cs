@@ -48,6 +48,8 @@ namespace Entities
             transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
         }
 
+        #region Fall
+
         protected void FallIntoVoid()
         {
             Freeze();
@@ -75,6 +77,8 @@ namespace Entities
                 yield return new WaitForFixedUpdate();
             }
         }
+
+        #endregion
 
         private void GetKnocked(Vector2 direction, float strength)
         {
