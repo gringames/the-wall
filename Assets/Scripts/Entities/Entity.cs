@@ -16,7 +16,7 @@ namespace Entities
 
         [SerializeField] private float knockBackResistance = 2;
 
-        [SerializeField] private Ability ability;
+        [SerializeField] protected Ability ability;
         [SerializeField] protected Weapon weapon;
         protected Rigidbody2D Rigidbody2D;
 
@@ -107,7 +107,7 @@ namespace Entities
             weapon.Shoot();
         }
 
-        private void PerformAbility()
+        protected void PerformAbility()
         {
             ability.Perform();
         }

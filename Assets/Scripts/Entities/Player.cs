@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
+using Abilities;
 
 namespace Entities
 {
@@ -16,6 +17,7 @@ namespace Entities
         List<GameObject> _shapes = new();
 
         [SerializeField] List<Weapon> _weapons = new();
+        [SerializeField] List<Ability> _abilities = new();
         [SerializeField] private float speed = 20;
         [SerializeField] private float accelerationFactor = 5;
 
@@ -86,6 +88,11 @@ namespace Entities
             {
                 Shoot();
             }
+
+            if (Input.GetMouseButton(1))
+            {
+                PerformAbility();
+            }
         }
 
         private void SwitchShape()
@@ -114,6 +121,7 @@ namespace Entities
             }
 
             weapon = _weapons[id];
+            ability = _abilities[id];
 
             string layerName = "PhysicsPlayer" + shape;
             //gameObject.layer = LayerMask.NameToLayer(layerName);

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackResistance: 2
-  ability: {fileID: 0}
+  ability: {fileID: 3871532921315434572}
   weapon: {fileID: 5072575811625581863}
   shape: 0
   _shapes:
@@ -61,6 +61,7 @@ MonoBehaviour:
   - {fileID: 5072575811625581863}
   - {fileID: 3244845763733509128}
   - {fileID: 6586813388616145151}
+  _abilities: []
   speed: 20
   accelerationFactor: 5
   maxLineDistance: 5
@@ -436,6 +437,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e5843aa198d84e12950a177f2cba407, type: 3}
+--- !u!114 &3871532921315434572 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7352003866660778034, guid: 0e5843aa198d84e12950a177f2cba407, type: 3}
+  m_PrefabInstance: {fileID: 6034227829860831358}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1ff5d6a99b4b4ab317a32c40b88d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5933472644918022204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 137940135629520962, guid: 0e5843aa198d84e12950a177f2cba407, type: 3}
