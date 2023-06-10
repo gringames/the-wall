@@ -12,9 +12,9 @@ namespace Entities
     public class Entity : MonoBehaviour
     {
         [SerializeField] private float speed;
-        [SerializeField] private float scaleSpeed = 2;
+        [SerializeField] private float scaleSpeed = 0.05f;
         [SerializeField] private float scaleMultiplier = 0.1f;
-        
+
         [SerializeField] private float knockbackResistance;
 
         [SerializeField] private Ability ability;
@@ -48,6 +48,8 @@ namespace Entities
             transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
         }
 
+        #region Fall
+
         protected void FallIntoVoid()
         {
             Freeze();
@@ -75,6 +77,8 @@ namespace Entities
                 yield return new WaitForFixedUpdate();
             }
         }
+
+        #endregion
 
         private void GetKnocked(Vector2 direction, float strength)
         {
