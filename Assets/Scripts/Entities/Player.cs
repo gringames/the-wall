@@ -111,7 +111,7 @@ namespace Entities
             weapon = _weapons[id];
 
             string layerName = "PhysicsPlayer" + shape;
-            gameObject.layer = LayerMask.NameToLayer(layerName);
+            //gameObject.layer = LayerMask.NameToLayer(layerName);
         }
 
         private void DrawLine(Vector3 target)
