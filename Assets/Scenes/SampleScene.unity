@@ -136,6 +136,14 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1068534715590223633, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
+      propertyPath: dot
+      value: 
+      objectReference: {fileID: 2800000, guid: 8112be432982e4a678741bd673bb7321, type: 3}
+    - target: {fileID: 1068534715590223633, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
+      propertyPath: offset
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068534715590223633, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: scaleSpeed
       value: 0.05
       objectReference: {fileID: 0}
@@ -158,6 +166,26 @@ PrefabInstance:
     - target: {fileID: 1663431387032495380, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939036760791248360, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
+      propertyPath: m_ApplyActiveColorSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939036760791248360, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939036760791248360, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4119ab2f4e04c3d4c99e1a47bb207559, type: 2}
+    - target: {fileID: 1939036760791248360, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0.014858246
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939036760791248360, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2188155873463848000, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
       propertyPath: m_Layer
@@ -274,8 +302,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3093803674476401308, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 443535152}
   m_SourcePrefab: {fileID: 100100000, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
+--- !u!1 &50302189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3093803674476401308, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
+  m_PrefabInstance: {fileID: 50302188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &52916409
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5841758768005117443, guid: f9fe4319bf1e6426183efcac358a0c49, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5841758768005117443, guid: f9fe4319bf1e6426183efcac358a0c49, type: 3}
       propertyPath: m_LocalPosition.x
@@ -989,6 +1025,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3283542916823531370, guid: 194fbf39a72c14cd0863571360e66057, type: 3}
   m_PrefabInstance: {fileID: 50302188}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &443535152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50302189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293cf6370fd741e69ab569725a809267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dot: {fileID: 21300000, guid: 8112be432982e4a678741bd673bb7321, type: 3}
+  size: 0
+  delta: 0
+  _positions: []
+  _dots: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,7 +2080,7 @@ Transform:
   - {fileID: 903855358}
   - {fileID: 2093205510}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2093205509
 GameObject:

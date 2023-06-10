@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
@@ -9,13 +10,17 @@ namespace Entities
         [SerializeField] List<GameObject> _shapes = new();
         [SerializeField] List<Weapon> _weapons = new();
         [SerializeField] private float maxLineDistance = 4f;
+        [SerializeField] private Texture dot;
+        [SerializeField] private float offset = 1.5f;
 
         // controlled by input system
         private LineRenderer _lineRenderer;
+        private static readonly int MainTex = Shader.PropertyToID("_MainTex");
 
         private void Start()
         {
             _lineRenderer = GetComponent<LineRenderer>();
+            _lineRenderer.material.SetTexture(MainTex, dot);
         }
 
 
@@ -88,11 +93,20 @@ namespace Entities
 
         private void DrawLine(Vector3 target)
         {
-            Vector3[] points = new Vector3[2];
-            points[0] = transform.position;
+            
+            
+            var pos = transform.position + transform.right * offset;
+            var direction = (target - pos).normalized;
 
-            var direction = (target - points[0]).normalized;
-            points[1] = points[0] + direction * maxLineDistance;
+            if (Vector3.Dot(direction, Vector3.right) < 0) return;
+            
+            
+            var end = pos + direction * maxLineDistance;
+            
+            Vector3[] points = {pos, end};
+
+            float width = _lineRenderer.startWidth;
+            _lineRenderer.material.mainTextureScale = new Vector2(1f / width, 1.0f);
 
             _lineRenderer.SetPositions(points);
         }

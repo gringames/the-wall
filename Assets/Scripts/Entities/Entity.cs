@@ -16,13 +16,13 @@ namespace Entities
         private readonly float _scaleSpeed = 0.05f;
         private readonly float _scaleMultiplier = 0.1f;
 
-        [SerializeField] private float knockbackResistance = 2;
+        [SerializeField] private float knockBackResistance = 2;
 
         [SerializeField] private Ability ability;
         [SerializeField] protected Weapon weapon;
         private Rigidbody2D _rigidbody2D;
 
-        private bool _freezed;
+        private bool _frozen;
         private readonly float _freezeTime = 1f;
 
 
@@ -36,7 +36,7 @@ namespace Entities
         private void InitRigidbody()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            _rigidbody2D.drag = knockbackResistance;
+            _rigidbody2D.drag = knockBackResistance;
         }
 
         #endregion
@@ -94,12 +94,12 @@ namespace Entities
 
         private void Freeze()
         {
-            _freezed = true;
+            _frozen = true;
         }
 
         private void Unfreeze()
         {
-            _freezed = false;
+            _frozen = false;
         }
 
         #endregion
@@ -109,12 +109,12 @@ namespace Entities
 
         protected void Move(Vector2 direction)
         {
-            if (_freezed) return;
+            if (_frozen) return;
 
             direction = direction.normalized;
             Vector2 pos = new Vector2(transform.position.x, transform.position.y);
 
-            Vector2 movVec = direction * (speed);
+            Vector2 movVec = direction * speed;
             _rigidbody2D.velocity = Vector2.Lerp(_rigidbody2D.velocity, movVec, Time.deltaTime * _accelerationFactor);
         }
 
