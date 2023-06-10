@@ -12,6 +12,7 @@ namespace Entities
     public class Entity : MonoBehaviour
     {
         [SerializeField] private float speed = 20;
+        [SerializeField] private float _accelerationFactor = 5;
         private readonly float _scaleSpeed = 0.05f;
         private readonly float _scaleMultiplier = 0.1f;
 
@@ -112,8 +113,8 @@ namespace Entities
             direction = direction.normalized;
             Vector2 pos = new Vector2(transform.position.x, transform.position.y);
 
-            Vector2 movVec = direction * (speed * Time.deltaTime);
-            _rigidbody2D.MovePosition(pos + movVec);
+            Vector2 movVec = direction * (speed);
+            _rigidbody2D.velocity = Vector2.Lerp(_rigidbody2D.velocity, movVec, Time.deltaTime * _accelerationFactor);
         }
 
         protected void Shoot()

@@ -15,7 +15,6 @@ namespace Entities
         private void Start()
         {
             _lineRenderer = GetComponent<LineRenderer>();
-            
         }
 
 
@@ -32,25 +31,28 @@ namespace Entities
 
         private void HandleInput()
         {
+            Vector2 input = Vector2.zero;
             if (Input.GetKey(KeyCode.W))
             {
-                Move(Vector2.up);
+                input.y = 1;
             }
 
             if (Input.GetKey(KeyCode.A))
             {
-                Move(Vector2.left);
+                input.x = -1;
             }
 
             if (Input.GetKey(KeyCode.S))
             {
-                Move(Vector2.down);
+                input.y = -1;
             }
 
             if (Input.GetKey(KeyCode.D))
             {
-                Move(Vector2.right);
+                input.x = 1;
             }
+
+            Move(input.normalized);
 
             if (Input.GetMouseButton(0))
             {
