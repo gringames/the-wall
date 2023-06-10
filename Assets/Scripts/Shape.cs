@@ -6,7 +6,7 @@ public enum Shape
 {
     Triangle,
     Square,
-    Circle,
+    Circle
 }
 
 public static class ShapeAccess
