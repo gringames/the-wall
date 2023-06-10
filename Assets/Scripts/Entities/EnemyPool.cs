@@ -8,9 +8,13 @@ namespace Entities
 {
     public class EnemyPool : MonoBehaviour
     {
+        [Header("Enemy Properties")]
         [SerializeField] private List<Transform> spawnPositions = new();
         [SerializeField] private int initialEnemyCount = 1;
         [SerializeField] private float initialShotInterval = 2;
+
+        [Header("GameData")] [SerializeField] private GameData gameData;
+        [SerializeField] private int enemyKillRewardPoints = 5;
 
         private float _shotInterval;
         private int _enemyCount;
@@ -46,6 +50,7 @@ namespace Entities
             enemy.localScale = new Vector3(1, 1);
             enemy.gameObject.SetActive(false);
             _enemies.Add(enemy);
+            gameData.AddToScore(enemyKillRewardPoints);
         }
 
         private void SpawnEnemy(Vector3 position)
