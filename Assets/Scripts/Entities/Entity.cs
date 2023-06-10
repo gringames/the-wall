@@ -22,10 +22,6 @@ namespace Entities
         [SerializeField] protected Weapon weapon;
         private Rigidbody2D _rigidbody2D;
 
-        private bool _frozen;
-        private readonly float _freezeTime = 1f;
-
-
         #region Init
 
         private void Awake()
@@ -41,20 +37,11 @@ namespace Entities
 
         #endregion
 
-        protected void LookAtPos(Vector3 targetPos)
-        {
-            Vector3 lookAt = targetPos;
-            float angleRad = Mathf.Atan2(lookAt.y - transform.position.y, lookAt.x - transform.position.x);
-            float angleDeg = 180 / Mathf.PI * angleRad;
-            transform.rotation = Quaternion.Euler(0, 0, angleDeg);
-        }
-
         #region Fall
 
         // TODO: call in LOCH
         protected virtual void FallIntoVoid()
         {
-            Freeze();
             ShrinkDown();
         }
 
@@ -78,42 +65,19 @@ namespace Entities
 
         #endregion
 
-        protected void GetKnocked(Vector2 direction, float strength)
-        {
-            // strength 5 was used
-
-            Freeze();
-
-            var force = direction * strength;
-            _rigidbody2D.AddForce(force, ForceMode2D.Impulse);
-
-            Invoke(nameof(Unfreeze), _freezeTime);
-        }
-
-        #region Freeze
-
-        private void Freeze()
-        {
-            _frozen = true;
-        }
-
-        private void Unfreeze()
-        {
-            _frozen = false;
-        }
-
-        #endregion
-
-
         #region Actions
+
+        protected void LookAtPos(Vector3 targetPos)
+        {
+            Vector3 lookAt = targetPos;
+            float angleRad = Mathf.Atan2(lookAt.y - transform.position.y, lookAt.x - transform.position.x);
+            float angleDeg = 180 / Mathf.PI * angleRad;
+            transform.rotation = Quaternion.Euler(0, 0, angleDeg);
+        }
 
         protected void Move(Vector2 direction)
         {
-            if (_frozen) return;
-
             direction = direction.normalized;
-            Vector2 pos = new Vector2(transform.position.x, transform.position.y);
-
             Vector2 movVec = direction * speed;
             _rigidbody2D.velocity = Vector2.Lerp(_rigidbody2D.velocity, movVec, Time.deltaTime * _accelerationFactor);
         }
