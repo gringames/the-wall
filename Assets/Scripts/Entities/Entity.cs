@@ -78,8 +78,7 @@ namespace Entities
 
         private void Shoot()
         {
-            Vector2 direction = transform.forward;
-            _weapon.Shoot(direction);
+            _weapon.Shoot();
         }
 
         private void PerformAbility()
