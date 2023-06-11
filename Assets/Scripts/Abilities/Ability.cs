@@ -18,13 +18,11 @@ namespace Abilities
             if (!Ready) return;
 
             DoAbility();
-            StartCoroutine(nameof(StartCooldownTimer));
+            Invoke(nameof(ReadyAbility), cooldown);
         }
 
-        private IEnumerator StartCooldownTimer()
+        private void ReadyAbility()
         {
-            Ready = false;
-            yield return new WaitForSeconds(cooldown);
             Ready = true;
         }
 

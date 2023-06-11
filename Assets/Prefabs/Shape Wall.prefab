@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 3304396935221058724}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5115912506455378063
 BoxCollider2D:
@@ -144,15 +144,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e496119d9d4a64a040fb8679e0f867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  delay: 15
+  delayMin: 5
+  repeatingRate: 3
   screenTopPos: {fileID: 0}
   screenBottomPos: {fileID: 0}
-  speed: 5
-  repeatRate: 15
-  _banners:
-  - {fileID: 21300000, guid: a5c512786faf64ca689af1e1d8cab218, type: 3}
-  - {fileID: 21300000, guid: a6962d87f266c469db631310e511d313, type: 3}
-  - {fileID: 21300000, guid: 14699aed1fe5e464f92b00495a60c541, type: 3}
-  _bannerRenderer: {fileID: 7954528655676313753}
+  banners: []
+  bannerRenderer: {fileID: 0}
+  enemyPool: {fileID: 0}
+  spawnDelay: 2
 --- !u!1 &7941090137254459602
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7941090137254459602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.37, y: 0, z: 0}
+  m_LocalPosition: {x: 3.37, y: 0, z: -0.1}
   m_LocalScale: {x: 0.1953125, y: 0.1953125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

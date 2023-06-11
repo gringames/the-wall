@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6080377310533182944}
   - component: {fileID: 6915480272619000578}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1575680822489183762}
   - component: {fileID: 2445350775580294880}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6420691503124880833}
   - component: {fileID: 3641120624330007511}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5498107665053523283}
   - component: {fileID: 237072349277725655}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Machinegun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4645618800978425856}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8616280630385801267}
   - component: {fileID: 7565204229508133702}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 2444413771639349905}
   - component: {fileID: 4044149900056785120}
   - component: {fileID: 1551128339653737495}
-  m_Layer: 15
+  m_Layer: 13
   m_Name: EnemySquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2211063941871524434}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

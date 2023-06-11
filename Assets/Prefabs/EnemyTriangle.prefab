@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7191342761123437579}
   - component: {fileID: 3515333994750863816}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1572853328845293041}
   - component: {fileID: 3772841204449437495}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1311989442427309013}
   - component: {fileID: 9141915548170080110}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6775819149318762412}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5473097394174016044}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.73, y: 0, z: 0}
+  m_LocalPosition: {x: 2.39, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 3691675218990081261}
   - component: {fileID: 2842322382979140924}
   - component: {fileID: 3119989482436442083}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: EnemyTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7829291933617261336}
   - component: {fileID: 7438894901171209801}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
