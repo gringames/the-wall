@@ -33,7 +33,7 @@ public class GameData : MonoBehaviour
 
     private void UpdateScoreText()
     {
-        gameScore.text = "" + _score;
+        gameScore.text = "Score: " + _score;
     }
 
     public void DisplayOutcome()
@@ -41,8 +41,8 @@ public class GameData : MonoBehaviour
         outcome.enabled = true;
         gameScore.enabled = true;
 
-        outcome.text = ""+ sessionHighScore;
-        gameScore.text = "" + PlayerPrefs.GetInt("Lastscore");
+        outcome.text = "Highscore: "+ sessionHighScore;
+        gameScore.text = "Last Score: " + PlayerPrefs.GetInt("Lastscore");
     }
 
     public void Reload()
@@ -58,5 +58,6 @@ public class GameData : MonoBehaviour
         outcome.enabled = false;
         gameScore.enabled = true;
         _score = 0;
+        UpdateScoreText();
     }
 }
