@@ -32,8 +32,6 @@ namespace Entities
 
             InitEnemies();
             SpawnEnemyGroup();
-
-            // TODO: sub to wall event: SpawnGroup
         }
 
         private void InitEnemies()

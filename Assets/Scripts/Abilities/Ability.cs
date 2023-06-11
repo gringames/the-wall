@@ -6,6 +6,7 @@ namespace Abilities
     public abstract class Ability : MonoBehaviour
     {
         [SerializeField] private float cooldown;
+        [SerializeField] private AudioSource _audio;
         protected bool Ready;
 
         private void Awake()
@@ -16,7 +17,8 @@ namespace Abilities
         public void Perform()
         {
             if (!Ready) return;
-
+            _audio.Play();
+            Ready = false;
             DoAbility();
             Invoke(nameof(ReadyAbility), cooldown);
         }

@@ -38,11 +38,13 @@ namespace Abilities
 
         private void PullEnemy()
         {
+            Debug.Log("Pull!");
             var dir = transform.position - _grapple.transform.position;
             var enemyRB = _attackedEnemy.GetComponent<Rigidbody2D>();
             
             enemyRB.AddForce(dir.normalized * pullStrength, ForceMode2D.Impulse);
-            
+            _attackedEnemy = null;
+            _attacked = false;
             StartCoroutine(nameof(WaitAndReset));
         }
 
@@ -54,8 +56,6 @@ namespace Abilities
 
         private void ResetAbility()
         {
-            _attackedEnemy = null;
-            _attacked = false;
             _grapple.ResetGrapple();
         }
 

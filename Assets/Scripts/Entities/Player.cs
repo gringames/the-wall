@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Weapons;
 using Abilities;
 
@@ -110,14 +111,17 @@ namespace Entities
             if (Input.GetKey(KeyCode.Alpha1)) // Circle
             {
                 SwitchShapeTo(Shape.Circle, 0);
+                MusicManager.Instance.SetCharacter(MusicManager.Character.Circle);
             }
             else if (Input.GetKey(KeyCode.Alpha2)) // Square
             {
                 SwitchShapeTo(Shape.Square, 1);
+                MusicManager.Instance.SetCharacter(MusicManager.Character.Square);
             }
             else if (Input.GetKey(KeyCode.Alpha3)) // Triangle
             {
                 SwitchShapeTo(Shape.Triangle, 2);
+                MusicManager.Instance.SetCharacter(MusicManager.Character.Triangle);
             }
         }
 
@@ -155,6 +159,18 @@ namespace Entities
             _lineRenderer.material.mainTextureScale = new Vector2(1f / width, 1.0f);
 
             _lineRenderer.SetPositions(points);
+        }
+
+        public override void FallIntoVoid()
+        {
+            base.FallIntoVoid();
+            Invoke("GameOver", 1);
+        }
+
+        private void GameOver()
+        {
+            GameData.Instance.Reload();
+            SceneManager.LoadScene(0);
         }
     }
 }

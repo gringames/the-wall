@@ -48,7 +48,7 @@ namespace Entities
 
             if (IsDoneFalling)
             {
-                _pool.ResetEnemy(transform);
+                Reset();
                 IsDoneFalling = false;
             }
         }
@@ -56,6 +56,11 @@ namespace Entities
         public void SetShotInterval(float interval)
         {
             _shotInterval = interval;
+        }
+
+        private void Reset()
+        {
+            _pool.ResetEnemy(transform);
         }
     }
 }

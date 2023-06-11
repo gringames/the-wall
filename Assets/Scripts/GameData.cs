@@ -21,7 +21,8 @@ public class GameData : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        sessionHighScore = PlayerPrefs.GetInt("Highscore");
+        DisplayOutcome();
     }
 
     public void AddToScore(int gain)
@@ -38,15 +39,18 @@ public class GameData : MonoBehaviour
     public void DisplayOutcome()
     {
         outcome.enabled = true;
-        gameScore.enabled = false;
+        gameScore.enabled = true;
 
-        outcome.text = $"Current Score: {currentScore} \n High Score: {sessionHighScore}";
+        outcome.text = ""+ sessionHighScore;
+        gameScore.text = "" + PlayerPrefs.GetInt("Lastscore");
     }
 
     public void Reload()
     {
         currentScore = _score;
         sessionHighScore = Math.Max(sessionHighScore, currentScore);
+        PlayerPrefs.SetInt("Highscore", sessionHighScore);
+        PlayerPrefs.SetInt("Lastscore", _score);
     }
 
     public void StartGame()

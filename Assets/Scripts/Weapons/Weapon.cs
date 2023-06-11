@@ -10,6 +10,7 @@ namespace Weapons
         [SerializeField] private float _strayAngle = 0f;
         [SerializeField] private List<GameObject> _projectileSpawnPoints;
         [SerializeField] private GameObject _projectilePrefab;
+        [SerializeField] private List<AudioSource> _audioSources = new();
 
         [SerializeField] private List<GameObject> _barrels;
 
@@ -27,6 +28,7 @@ namespace Weapons
                 GameObject spawn = _projectileSpawnPoints[_spawnIndex];
                 projectile.transform.SetPositionAndRotation(spawn.transform.position, spawn.transform.rotation);
                 projectile.transform.rotation *= Quaternion.Euler(0, 0, Random.Range(-_strayAngle, _strayAngle));
+                _audioSources[_spawnIndex].Play();
                 _spawnIndex++;
                 if (_spawnIndex >= _projectileSpawnPoints.Count)
                 {
