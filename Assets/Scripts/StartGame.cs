@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Entities;
 using UnityEngine;
 
@@ -17,7 +15,6 @@ public class StartGame : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Start");
         if (collision.transform.parent.transform.parent.TryGetComponent<Entity>(out Entity entity))
         {
             Invoke("Play", 1.5f);
@@ -28,7 +25,7 @@ public class StartGame : MonoBehaviour
 
     private void Play()
     {
-        wall.SetActive(true);
+        wall.GetComponent<Wall>().EnableWall();
         spawner.SetActive(true);
     }
 }

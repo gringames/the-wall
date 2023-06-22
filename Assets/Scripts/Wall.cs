@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Entities;
+using UnityEditor;
 using UnityEngine;
 
 public class Wall : MonoBehaviour
@@ -12,9 +13,10 @@ public class Wall : MonoBehaviour
     [Header("Wall Properties")] [SerializeField]
     private float speed = 5;
 
-    [SerializeField] private float delay = 15;
-    [SerializeField] private int delayMin = 5;
-    [SerializeField] private int repeatingRate = 3;
+    [SerializeField] private float wallDelay = 15;
+    [SerializeField] private float firstWallDelay = 30;
+    [SerializeField] private int minimumWallDelay = 5;
+    [SerializeField] private int repeatingRateForUpdatingProperties = 3;
 
     [Header("Positions")] [SerializeField] private Transform screenTopPos;
     [SerializeField] private Transform screenBottomPos;
@@ -30,11 +32,25 @@ public class Wall : MonoBehaviour
     private float _timer;
     private int _counter;
     private readonly float _threshold = 0.1f;
+    private bool _startTimer;
 
+    public void EnableWall()
+    {
+        gameObject.SetActive(true);
+        Invoke(nameof(StartTimer), firstWallDelay);
+    }
 
+    private void StartTimer()
+    {
+        _startTimer = true;
+    }
+    
+    
     private void Update()
     {
-        _timer = (_timer + Time.deltaTime) % delay;
+        if (!_startTimer) return;
+        
+        _timer = (_timer + Time.deltaTime) % wallDelay;
         if (_timer < _threshold) StartWall();
 
         if (!_move) return;
@@ -72,10 +88,10 @@ public class Wall : MonoBehaviour
 
     private void UpdateWallProperties()
     {
-        _counter = (_counter + 1) % repeatingRate;
+        _counter = (_counter + 1) % repeatingRateForUpdatingProperties;
         if (_counter != 0) return;
 
-        delay = Math.Max(delay - 1, delayMin);
+        wallDelay = Math.Max(wallDelay - 1, minimumWallDelay);
     }
 
 
