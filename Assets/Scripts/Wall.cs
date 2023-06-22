@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Entities;
-using UnityEditor;
 using UnityEngine;
 
 public class Wall : MonoBehaviour
@@ -44,12 +43,12 @@ public class Wall : MonoBehaviour
     {
         _startTimer = true;
     }
-    
-    
+
+
     private void Update()
     {
         if (!_startTimer) return;
-        
+
         _timer = (_timer + Time.deltaTime) % wallDelay;
         if (_timer < _threshold) StartWall();
 
@@ -79,7 +78,7 @@ public class Wall : MonoBehaviour
 
         StartCoroutine(nameof(WaitAndSpawnNewEnemies));
     }
-    
+
     private IEnumerator WaitAndSpawnNewEnemies()
     {
         yield return new WaitForSeconds(spawnDelay);

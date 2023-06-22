@@ -913,6 +913,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 710086142}
     - target: {fileID: 2444483195670792267, guid: bb82ca38f31bb4c2f957e71232acdc9f, type: 3}
+      propertyPath: firstWallDelay
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444483195670792267, guid: bb82ca38f31bb4c2f957e71232acdc9f, type: 3}
       propertyPath: screenBottomPos
       value: 
       objectReference: {fileID: 1549483095}

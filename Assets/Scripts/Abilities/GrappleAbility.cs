@@ -38,7 +38,6 @@ namespace Abilities
 
         private void PullEnemy()
         {
-            Debug.Log("Pull!");
             var dir = transform.position - _grapple.transform.position;
             var enemyRB = _attackedEnemy.GetComponent<Rigidbody2D>();
             
@@ -58,9 +57,5 @@ namespace Abilities
         {
             _grapple.ResetGrapple();
         }
-
-
-
-
     }
 }

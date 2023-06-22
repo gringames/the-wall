@@ -11,9 +11,10 @@ namespace Entities
         [Header("Enemy Properties")]
         [SerializeField] private List<Transform> spawnPositions = new();
         [SerializeField] private int initialEnemyCount = 1;
-        [SerializeField] private float initialShotInterval = 2;
+        [SerializeField] private float initialShotInterval = 3;
 
-        [Header("GameData")] [SerializeField] private GameData gameData;
+        [Header("GameData")]
+        [SerializeField] private GameData gameData;
         [SerializeField] private int enemyKillRewardPoints = 5;
 
         private float _shotInterval;
@@ -22,6 +23,9 @@ namespace Entities
         private Vector3 _poolPos;
         private List<Transform> _enemies = new();
         private int _spawnCounter;
+        private const int SpawnUpdateInterval = 4;
+        private int _currentGroupSize;
+        private const int MaximalEnemiesOnField = 2;
 
         private void Start()
         {
@@ -49,6 +53,13 @@ namespace Entities
             enemy.gameObject.SetActive(false);
             _enemies.Add(enemy);
             gameData.AddToScore(enemyKillRewardPoints);
+
+            _currentGroupSize--;
+
+            if (_currentGroupSize == 0)
+            {
+                SpawnEnemyGroup();
+            }
         }
 
         private void SpawnEnemy(Vector3 position)
@@ -63,6 +74,8 @@ namespace Entities
 
         public void SpawnEnemyGroup()
         {
+            if (_currentGroupSize > MaximalEnemiesOnField) return;
+            
             ShuffleSpawnPoints();
             ShuffleEnemies();
 
@@ -75,13 +88,15 @@ namespace Entities
                 SpawnEnemy(spawnPositions[index].position);
             }
 
+            _currentGroupSize = cap;
+
             UpdateEnemyProperties();
         }
 
         private void UpdateEnemyProperties()
         {
             // only do all 2 spawns, then set
-            _spawnCounter = (_spawnCounter + 1) % 2;
+            _spawnCounter = (_spawnCounter + 1) % SpawnUpdateInterval;
             if (_spawnCounter != 0) return;
 
             // gradually increase number of spawned enemies and decrease shot interval
