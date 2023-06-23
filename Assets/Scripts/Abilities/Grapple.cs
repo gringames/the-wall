@@ -15,7 +15,7 @@ namespace Abilities
         private void Start()
         {
             _grappleAbility = GetComponentInParent<GrappleAbility>();
-            _defaultPos = transform.position;
+            _defaultPos = transform.localPosition;
         }
         
         private void Update()
