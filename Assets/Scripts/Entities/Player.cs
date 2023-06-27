@@ -39,6 +39,7 @@ namespace Entities
         {
             var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0f;
+            Rigidbody2D.angularVelocity = 0;
 
             LookAtPos(mouseWorldPos);
             HandleInput();
